@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "919f60c3-1015-474d-8052-4febd674b6fb",
+		"name": "Healthcare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46719165",
+		"_collection_link": "https://dinojackson.postman.co/workspace/Dino-Jackson's-Workspace~7a8975a8-0bc8-45cb-829b-40412bea750c/collection/46719165-919f60c3-1015-474d-8052-4febd674b6fb?action=share&source=collection_link&creator=46719165"
+	},
+	"item": [
+		{
+			"name": "Register a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"dino\",\r\n  \"email\": \"dino@example.com\",\r\n  \"password\": \"securepass123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log In",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"dino2\",\r\n  \"password\": \"securepass123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Patient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <access_token>",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"age\": 45,\r\n  \"condition\": \"Diabetes\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Doctor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzA5Nzg2LCJpYXQiOjE3NTYzMDk0ODYsImp0aSI6IjZmMWRlNWZjOWEzYzRmZDBiODBkYzQ5NzEwYzBhZWQxIiwidXNlcl9pZCI6IjMifQ.-E8DwokMp-0D1RiGgZAcYhOcDUSRmt8hW7YAYfcpag0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/doctors/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Map Patient to Doctor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patient\": 1,\r\n  \"doctor\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mappings/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve all patients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzEyOTA2LCJpYXQiOjE3NTYzMTI2MDYsImp0aSI6Ijc0NTdhZDg2ZjdiYTRjZjRiY2Q5MzI2ZWFlNGE5ZGVjIiwidXNlcl9pZCI6IjMifQ.b66e-bw7PxVn_ZhGq8Hdlb434jTK6TfEKxQo0w1UmKA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/patients/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve patient by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzEzMDY4LCJpYXQiOjE3NTYzMTI3NjgsImp0aSI6IjMyNmQyMzVlNjFkYjRmOGQ5OTI3ZWNiZjdjMWY1OWM4IiwidXNlcl9pZCI6IjMifQ.0iFrKDic7weIfOgYIXRtAi78r6YPexoEWnQIU3OVV2s",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/patients/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new patient entry tied to authenticated user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzEzNDMxLCJpYXQiOjE3NTYzMTMxMzEsImp0aSI6IjI1OWI4ZjY1MDQ2MDQ3MjZhNGM0YmVlODYxMTJkNDY3IiwidXNlcl9pZCI6IjMifQ.CBCBdhI0t2D_zqXOUO12zuUrQVjCfeaRPSydmqtEFMw",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Jane Smith\",\r\n  \"age\": 32,\r\n  \"condition\": \"Hypertension\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/patients/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing patient’s details",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzEzNTU3LCJpYXQiOjE3NTYzMTMyNTcsImp0aSI6IjI4YTAyYWY0YjBhOTRjZTlhYzhiNzkzMmExMjljYTJhIiwidXNlcl9pZCI6IjMifQ.W913qkcL_YaKAM5sEMZuWQMwCTVqdvBWieOLdiceMcI",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John Doe Updated\",\r\n  \"age\": 46,\r\n  \"condition\": \"Type 2 Diabetes\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/patients/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove a patient record",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzEzNjgxLCJpYXQiOjE3NTYzMTMzODEsImp0aSI6IjJkYmI1OWVjZjA4ZDQzN2Q5ZjFjZDQ4YzZjZGY0Zjk2IiwidXNlcl9pZCI6IjMifQ.VFxX4P6SfGwKnYt_VtpgWaRtHw48iiqlBO1cI6u9kJA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/patients/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve all doctors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/doctors/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a specific doctor by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzEzOTQxLCJpYXQiOjE3NTYzMTM2NDEsImp0aSI6ImRhOTU4MTVhNjViZTRhNjk4ZDU2ZWUwYzI5MDAyNTNiIiwidXNlcl9pZCI6IjMifQ.fuP5DedwTLYxsHrdlaV405Tadyt8N0_EOTZ8zTldwRA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/doctors/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new doctor entry tied to the authenticated user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzE0MDkyLCJpYXQiOjE3NTYzMTM3OTIsImp0aSI6IjllY2ZjODQzZWZhYTQ4MjhiNWFhZGUzZTcxOTBhOTI2IiwidXNlcl9pZCI6IjMifQ.sSAMPoNQMlDAnVMGB-TeS6JYv3E-Ih8eVCV65qK1FTw",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Dr. Ramesh Patel\",\r\n  \"specialty\": \"Neurology\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/doctors/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing doctor’s details",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzE0MjUzLCJpYXQiOjE3NTYzMTM5NTMsImp0aSI6IjgzZjVkMzg0MTBiMTQ1NDY5NzYwZjVmNjI2NjIwMjlhIiwidXNlcl9pZCI6IjMifQ.nj3Wl9WhnYbmQDGmehDm4L7bm3RVV0Qdj9mh43BgEII",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Dr. Ramesh Patel Updated\",\r\n  \"specialty\": \"Neurosurgery\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/doctors/2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove a doctor record",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/doctors/2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Link a patient to a doctor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzE1MTE0LCJpYXQiOjE3NTYzMTQ4MTQsImp0aSI6IjdhZmVlOTE1MGI4NTRlM2E5NGI2OTg1NGQ4NjUwN2Y0IiwidXNlcl9pZCI6IjMifQ.cayePrtZEMUeqZPvXdtjWlCJz8i-6JtkCIDIYGG1sRw",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patient\": 2,\r\n  \"doctor\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/mappings/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all doctor mappings for a specific patient",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzE1NTIwLCJpYXQiOjE3NTYzMTUyMjAsImp0aSI6ImZlMjk0NTUwOWYzOTQwYTg5YjczNzU0MDEwNWMwMTU4IiwidXNlcl9pZCI6IjMifQ.5erDjt2e--qgJBvQSngew2qSjJuaEy1YyrowDVsWKVg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/mappings/2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove a specific patient-doctor mapping",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzE1NjA2LCJpYXQiOjE3NTYzMTUzMDYsImp0aSI6IjYyOTg5MzU5MmIxZjQwYzRhNjU5ZDgxMDZiYzQyZTFhIiwidXNlcl9pZCI6IjMifQ.JRVp0BSARfjIIAnPT_TZUqwRKZWMsAPgAsCIBxEmJkA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/mappings/delete/2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						"delete",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve all patient-doctor mappings in the system",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2MzE2MjIxLCJpYXQiOjE3NTYzMTU5MjEsImp0aSI6IjdhNjk3MDc1NDE5NDRkN2M4NmEyMTI5OWNjMThhMGYwIiwidXNlcl9pZCI6IjMifQ.gBz-KoYbYbRlaujMwB3HaZu9XF2ulPHpxvXcYy5tLDg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/mappings/all/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						"all",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
